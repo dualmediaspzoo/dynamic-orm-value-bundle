@@ -73,6 +73,6 @@ class DynamicORMValueBundle extends AbstractBundle
             }
         });
 
-        $container->addCompilerPass(new DynamicValueCompilerPass());
+        $container->addCompilerPass(new DynamicValueCompilerPass(), priority: 100);
     }
 }
