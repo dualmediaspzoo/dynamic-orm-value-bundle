@@ -32,6 +32,7 @@ class GenericGenerator implements GeneratorInterface
             ));
         }
 
+        // todo: make attempt count configurable through bundle, maybe per class?
         $attempts = 10;
 
         while ($attempts > 0) {
