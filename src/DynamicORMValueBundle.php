@@ -7,6 +7,7 @@ use DualMedia\DynamicORMValueBundle\Interface\GeneratorInterface;
 use DualMedia\DynamicORMValueBundle\Interface\ProviderInterface;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -64,6 +65,11 @@ class DynamicORMValueBundle extends AbstractBundle
 
                 $container->registerForAutoconfiguration(ProviderInterface::class)
                     ->addTag(DynamicORMValueBundle::PROVIDER_TAG);
+            }
+
+            public function getAlias(): string
+            {
+                return Container::underscore('DynamicORMValueTaggingExtension');
             }
         });
 
