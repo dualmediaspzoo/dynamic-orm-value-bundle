@@ -24,7 +24,7 @@ class GenericGenerator implements GeneratorInterface
         $class = ClassUtils::getClass($entity);
         $repository = $this->registry->getManagerForClass($class)->getRepository($class);
 
-        if (!($repository instanceof EntityRepository)) {
+        if (!$repository instanceof EntityRepository) {
             throw new \LogicException(sprintf(
                 'Specified entity %s does not have an %s and cannot be used in this generator',
                 $class,
